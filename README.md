@@ -1,4 +1,4 @@
-# AltamayozSchool Database Project
+# AltamayozSchool Database Project for SQL 101 Course
 
 This project contains a central database for **Altamayoz School** that manages information about students, teachers, and subjects.
 
@@ -10,11 +10,6 @@ This project contains a central database for **Altamayoz School** that manages i
 ## Features:
 - Inserted 30 students, 10 teachers, and 6 subjects.
 - Queries for displaying tables, sorting, alias usage, updates, and renaming tables.
-
-## Usage:
-1. Open the `AltamayozSchool.sql` file in your SQL environment (e.g., MySQL Workbench).
-2. Run the script to create and populate the database.
-3. Explore and modify queries as needed.
 
 ---
 Created as part of a database training exercise.
