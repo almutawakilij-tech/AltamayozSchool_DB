@@ -36,10 +36,6 @@ CREATE TABLE Subjects (
     subject_name VARCHAR(100) NOT NULL
 );
 
-------------------------------------------------
-SELECT * FROM Students;
-SELECT * FROM Teachers;
-SELECT * FROM Subjects;
 
 -- Inserting data for 30 students
 ------------------------------------------------
@@ -98,3 +94,36 @@ INSERT INTO Subjects (subject_name) VALUES
 ('الكيمياء'),
 ('الفيزياء'),
 ('التاريخ');
+
+------------------------------------------------
+SELECT * FROM Students;
+SELECT * FROM Teachers;
+SELECT * FROM Subjects;
+
+-- Show students sorted by name
+------------------------------------------------
+SELECT * FROM Students ORDER BY student_name ASC;
+
+------------------------------------------------
+-- Use a nickname
+------------------------------------------------
+SELECT student_name AS "اسم_الطالب" FROM Students;
+
+------------------------------------------------
+-- Modify student data
+------------------------------------------------
+UPDATE Students
+SET email = 'new_email_student@example.com'
+WHERE student_id = 1;
+
+------------------------------------------------
+-- Modify teacher data
+------------------------------------------------
+UPDATE Teachers
+SET office_number = 'Z999'
+WHERE teacher_id = 1;
+
+------------------------------------------------
+-- Modify a table name
+------------------------------------------------
+ALTER TABLE Students RENAME TO School_Students;
