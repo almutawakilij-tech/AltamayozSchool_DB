@@ -1,47 +1,4 @@
--- AltamayozSchool Database Project
-
-CREATE DATABASE AltamayozSchool;
-USE AltamayozSchool;
-
-
--- Create tables
-------------------------------------------------
-
--- Student tables
-CREATE TABLE Students (
-    student_id INT PRIMARY KEY AUTO_INCREMENT,
-    student_name VARCHAR(100) NOT NULL,
-    birth_date DATE NOT NULL,
-    gender CHAR(1) CHECK (gender IN ('M','F')),
-    enrollment_date DATE NOT NULL,
-    email VARCHAR(100) UNIQUE,
-    level INT CHECK (level BETWEEN 1 AND 6),
-    track VARCHAR(20) CHECK (track IN ('علمي','انساني')),
-    gpa DECIMAL(5,2) CHECK (gpa BETWEEN 0 AND 100)
-);
-
--- Teachers tables
-CREATE TABLE Teachers (
-    teacher_id INT PRIMARY KEY AUTO_INCREMENT,
-    teacher_name VARCHAR(100) NOT NULL,
-    birth_date DATE NOT NULL,
-    gender CHAR(1) CHECK (gender IN ('M','F')),
-    email VARCHAR(100) UNIQUE,
-    office_number VARCHAR(10)
-);
-
--- Subjects tables
-CREATE TABLE Subjects (
-    subject_id INT PRIMARY KEY AUTO_INCREMENT,
-    subject_name VARCHAR(100) NOT NULL
-);
-
-
--- View tables
-------------------------------------------------
-SHOW TABLES;
-
--- Entering data for 30 students
+-- Inserting data for 30 students
 ------------------------------------------------
 INSERT INTO Students (student_name, birth_date, gender, enrollment_date, email, level, track, gpa) VALUES
 ('أحمد محمد', '2007-01-05', 'M', '2022-09-01', 'ahmad1@example.com', 3, 'علمي', 85.5),
@@ -75,7 +32,7 @@ INSERT INTO Students (student_name, birth_date, gender, enrollment_date, email, 
 ('لينا حسن', '2007-11-25', 'F', '2022-09-01', 'lina1@example.com', 2, 'انساني', 73.6),
 ('خديجة ابراهيم', '2006-12-04', 'F', '2021-09-01', 'khadija1@example.com', 5, 'علمي', 95.0);
 
--- Entering data for 10 teachers
+-- Inserting data for 10 teachers
 ------------------------------------------------
 INSERT INTO Teachers (teacher_name, birth_date, gender, email, office_number) VALUES
 ('أ. خالد العتيبي', '1980-05-12', 'M', 'khalid.teach@example.com', 'A101'),
@@ -89,7 +46,7 @@ INSERT INTO Teachers (teacher_name, birth_date, gender, email, office_number) VA
 ('أ. صالح العوفي', '1979-08-10', 'M', 'saleh.teach@example.com', 'C301'),
 ('أ. منى العتيق', '1987-04-16', 'F', 'mona.teach@example.com', 'C302');
 
--- Enter data for 6 subjects
+-- Inserting data for 6 subjects
 ------------------------------------------------
 INSERT INTO Subjects (subject_name) VALUES
 ('الرياضيات'),
@@ -98,38 +55,3 @@ INSERT INTO Subjects (subject_name) VALUES
 ('الكيمياء'),
 ('الفيزياء'),
 ('التاريخ');
-
--- Display the contents of all tables
-------------------------------------------------
-SELECT * FROM Students;
-SELECT * FROM Teachers;
-SELECT * FROM Subjects;
-
-------------------------------------------------
--- Show students sorted by name
-------------------------------------------------
-SELECT * FROM Students ORDER BY student_name ASC;
-
-------------------------------------------------
--- Use a pseudonym
-------------------------------------------------
-SELECT student_name AS "اسم_الطالب" FROM Students;
-
-------------------------------------------------
--- Modify student data
-------------------------------------------------
-UPDATE Students
-SET email = 'new_email_student@example.com'
-WHERE student_id = 1;
-
-------------------------------------------------
---  Modify teacher data
-------------------------------------------------
-UPDATE Teachers
-SET office_number = 'Z999'
-WHERE teacher_id = 1;
-
-------------------------------------------------
--- Modify a table name
-------------------------------------------------
-ALTER TABLE Students RENAME TO School_Students;
